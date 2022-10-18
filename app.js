@@ -1,3 +1,5 @@
+const dotenv = require('dotenv'); // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config()
 const express=require("express");
 const bodyParser =require("body-parser");
 const https= require("https");
@@ -9,7 +11,7 @@ const { resourceUsage } = require("process");
 const { application } = require("express");
 const { resolve } = require("path");
 const { Int32 } = require("mongodb");
-mongoose.connect("mongodb+srv://shashi:mongo123@cluster0.fsxjldo.mongodb.net/?retryWrites=true&w=majority",{ useNewUrlParser: true });
+mongoose.connect(process.env.MONGOURL,{ useNewUrlParser: true });
 
 // mongoose.connection.useDb('pbl');
 
